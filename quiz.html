@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amine Siala | Quiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Amine Siala</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="parcours.html">Parcours</a></li>
+          <li><a href="competences.html">Compétences</a></li>
+          <li><a href="stages.html">Stages</a></li>
+          <li><a href="evenements.html">Événements</a></li>
+          <li><a href="matieres.html">Matières</a></li>
+          <li><a href="passions.html">Passions</a></li>
+          <li><a href="quiz.html" class="active">Quiz</a></li>
+          <li><a href="temoignage.html">Témoignage</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Quiz : le développement web</h1>
+        <p>10 questions sur HTML, CSS et JavaScript. Répondez puis cliquez sur « Valider » pour voir votre note.</p>
+      </div>
+    </section>
+
+    <section class="container section">
+      <form id="quiz" class="quiz">
+
+        <fieldset class="question">
+          <legend>1. Que signifie HTML ?</legend>
+          <label><input type="radio" name="q1" value="a"> HyperText Markup Language</label>
+          <label><input type="radio" name="q1" value="b"> HighText Machine Language</label>
+          <label><input type="radio" name="q1" value="c"> Hyper Transfer Markup Language</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>2. Quelle balise permet de créer un lien ?</legend>
+          <label><input type="radio" name="q2" value="a"> &lt;link&gt;</label>
+          <label><input type="radio" name="q2" value="b"> &lt;a&gt;</label>
+          <label><input type="radio" name="q2" value="c"> &lt;href&gt;</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>3. Quelle propriété CSS change la couleur du texte ?</legend>
+          <label><input type="radio" name="q3" value="a"> font-color</label>
+          <label><input type="radio" name="q3" value="b"> text-color</label>
+          <label><input type="radio" name="q3" value="c"> color</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>4. Quelles balises sont des balises sémantiques ? (plusieurs réponses)</legend>
+          <label><input type="checkbox" name="q4" value="header"> &lt;header&gt;</label>
+          <label><input type="checkbox" name="q4" value="div"> &lt;div&gt;</label>
+          <label><input type="checkbox" name="q4" value="nav"> &lt;nav&gt;</label>
+          <label><input type="checkbox" name="q4" value="footer"> &lt;footer&gt;</label>
+          <label><input type="checkbox" name="q4" value="span"> &lt;span&gt;</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>5. En CSS, quel symbole sélectionne un élément par son id ?</legend>
+          <label><input type="radio" name="q5" value="a"> . (point)</label>
+          <label><input type="radio" name="q5" value="b"> # (dièse)</label>
+          <label><input type="radio" name="q5" value="c"> * (étoile)</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>6. Quel mot-clé JavaScript déclare une constante ?</legend>
+          <label><input type="radio" name="q6" value="a"> var</label>
+          <label><input type="radio" name="q6" value="b"> let</label>
+          <label><input type="radio" name="q6" value="c"> const</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>7. Quelle fonction JavaScript affiche une boîte de message ?</legend>
+          <label><input type="radio" name="q7" value="a"> alert()</label>
+          <label><input type="radio" name="q7" value="b"> console.log()</label>
+          <label><input type="radio" name="q7" value="c"> print()</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>8. Quels types de champ &lt;input&gt; existent en HTML ? (plusieurs réponses)</legend>
+          <label><input type="checkbox" name="q8" value="email"> email</label>
+          <label><input type="checkbox" name="q8" value="phone"> phone</label>
+          <label><input type="checkbox" name="q8" value="date"> date</label>
+          <label><input type="checkbox" name="q8" value="color"> color</label>
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>9. Quelle balise HTML sert à afficher une image ? (écrivez son nom)</legend>
+          <input type="text" name="q9" placeholder="Votre réponse">
+        </fieldset>
+
+        <fieldset class="question">
+          <legend>10. Quelle méthode JavaScript sélectionne un élément grâce à son id ?</legend>
+          <label><input type="radio" name="q10" value="a"> document.getElementById()</label>
+          <label><input type="radio" name="q10" value="b"> document.getElementsByClassName()</label>
+          <label><input type="radio" name="q10" value="c"> document.querySelectorAll()</label>
+        </fieldset>
+
+        <div class="boutons">
+          <button type="submit" class="btn btn-primary">Valider</button>
+          <button type="reset" class="btn btn-secondary">Recommencer</button>
+        </div>
+      </form>
+
+      <!-- Résultat : caché au début, affiché par quiz.js -->
+      <section id="resultat" class="boite resultat" hidden>
+        <h2>Votre note</h2>
+        <p id="note" class="note"></p>
+        <p id="appreciation"></p>
+        <h3>Les bonnes réponses</h3>
+        <ul id="liste-reponses" class="liste-reponses"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Amine Siala · Projet de Programmation Web I, IIT</p>
+      <p><a href="mailto:aminsiala01@gmail.com">aminsiala01@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amine Siala | Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Amine Siala</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="parcours.html">Parcours</a></li>
+          <li><a href="competences.html">Compétences</a></li>
+          <li><a href="stages.html">Stages</a></li>
+          <li><a href="evenements.html">Événements</a></li>
+          <li><a href="matieres.html">Matières</a></li>
+          <li><a href="passions.html">Passions</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="temoignage.html">Témoignage</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Contact</h1>
+        <p>Une question, une proposition de stage ? Écrivez-moi !</p>
+      </div>
+    </section>
+
+    <section class="container section contact-layout">
+      <!-- ===== Coordonnées ===== -->
+      <div class="boite contact-infos">
+        <h2>Mes coordonnées</h2>
+        <p>📧 <a href="mailto:aminsiala01@gmail.com">aminsiala01@gmail.com</a></p>
+        <p>📞 <a href="tel:+21699282954">+216 99 282 954</a></p>
+        <p>💼 <a href="https://www.linkedin.com/in/amine-siala/" target="_blank">LinkedIn</a></p>
+        <p>💻 <a href="https://github.com/amineSiala" target="_blank">GitHub</a></p>
+      </div>
+
+      <!-- ===== Formulaire =====
+           action="mailto:..." : le formulaire ouvre la messagerie du visiteur
+           novalidate : c'est notre JavaScript (contact.js) qui vérifie les champs -->
+      <form id="formulaire-contact" class="boite formulaire"
+            action="mailto:aminsiala01@gmail.com" method="post" enctype="text/plain" novalidate>
+        <h2>Envoyez-moi un message</h2>
+
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom">
+
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email">
+
+        <label for="sujet">Sujet</label>
+        <input type="text" id="sujet" name="sujet">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6"></textarea>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+
+        <!-- message d'erreur ou de succès, rempli par contact.js -->
+        <p id="message-formulaire"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Amine Siala · Projet de Programmation Web I, IIT</p>
+      <p><a href="mailto:aminsiala01@gmail.com">aminsiala01@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

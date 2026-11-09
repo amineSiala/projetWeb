@@ -1,0 +1,702 @@
+/* =========================================================
+   style.css : feuille de style commune à toutes les pages
+   ========================================================= */
+
+/* ---------- 1. Couleurs ---------- */
+:root {
+  --bleu: #1d4ed8;
+  --bleu-fonce: #1e3a8a;
+  --bleu-clair: #dbeafe;
+  --texte: #1f2937;
+  --texte-gris: #6b7280;
+  --fond: #f5f7fb;
+  --blanc: #ffffff;
+  --bordure: #e5e7eb;
+  --vert: #15803d;
+  --vert-clair: #dcfce7;
+  --rouge: #b91c1c;
+  --rouge-clair: #fee2e2;
+}
+
+/* ---------- 2. Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--texte);
+  background: var(--fond);
+  line-height: 1.6;
+  /* le pied de page reste en bas même si la page est courte */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;   /* le navigateur ajoute une marge par défaut */
+}
+
+a {
+  color: var(--bleu);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section {
+  padding-top: 40px;
+}
+
+.section-title {
+  display: inline-block;
+  font-size: 1.8rem;
+  margin: 0 0 24px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--bleu);
+}
+
+/* Texte à compléter plus tard (en jaune pour le repérer) */
+.todo {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* ---------- 3. En-tête et menu ---------- */
+.site-header {
+  position: sticky;   /* reste en haut quand on fait défiler */
+  top: 0;
+  z-index: 100;
+  background: var(--blanc);
+  border-bottom: 1px solid var(--bordure);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--bleu-fonce);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+
+.main-nav a {
+  display: block;
+  padding: 6px 9px;
+  border-radius: 6px;
+  color: var(--texte);
+  text-decoration: none;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  background: var(--bleu-clair);
+  color: var(--bleu-fonce);
+}
+
+/* la page sur laquelle on se trouve */
+.main-nav a.active {
+  background: var(--bleu);
+  color: var(--blanc);
+}
+
+/* Bouton ☰ : caché sur grand écran */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+/* ---------- 4. Boutons ---------- */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 2px solid var(--bleu);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--bleu);
+  color: var(--blanc);
+}
+
+.btn-primary:hover {
+  background: var(--bleu-fonce);
+  border-color: var(--bleu-fonce);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--bleu);
+}
+
+.btn-secondary:hover {
+  background: var(--bleu-clair);
+}
+
+/* ---------- 5. Page d'accueil ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--bleu-clair), var(--blanc));
+  padding: 70px 0;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;   /* pour la future photo */
+  background: var(--bleu);
+  color: var(--blanc);
+  font-size: 3.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.3);
+}
+
+.hero-hello {
+  margin: 0;
+  color: var(--bleu);
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 4px 0;
+  font-size: 2.8rem;
+}
+
+.hero-role {
+  margin: 0 0 16px;
+  font-size: 1.2rem;
+  color: var(--texte-gris);
+}
+
+.hero-bio {
+  max-width: 620px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 14px;
+}
+
+.social-links img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s;
+}
+
+.social-links a:hover img {
+  transform: scale(1.15);
+}
+
+/* ---------- 6. Titre des autres pages ---------- */
+.page-header {
+  background: linear-gradient(135deg, var(--bleu-clair), var(--blanc));
+  padding: 50px 0;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-size: 2.3rem;
+  color: var(--bleu-fonce);
+}
+
+.page-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--texte-gris);
+}
+
+/* ---------- 7. Cartes ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 280px;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 8px 0;
+  color: var(--bleu-fonce);
+}
+
+.card-icon {
+  font-size: 2rem;
+}
+
+.card-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* 2 cartes par ligne (page compétences) */
+.cards-2 .card {
+  flex-basis: 400px;
+}
+
+/* petites cartes centrées (qualités, points forts) */
+.small-cards .card {
+  flex-basis: 180px;
+  text-align: center;
+}
+
+/* Boîte blanche sans animation (formulaires, témoignage) */
+.boite {
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Image (ou emoji en attendant la photo) en haut d'une carte */
+.photo {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--bleu-clair);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 12px;
+}
+
+/* Petite étiquette bleue (année, catégorie) */
+.etiquette {
+  display: inline-block;
+  margin: 0;
+  padding: 2px 12px;
+  border-radius: 20px;
+  background: var(--bleu);
+  color: var(--blanc);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.sous-titre {
+  margin: 0 0 10px;
+  color: var(--texte-gris);
+  font-style: italic;
+}
+
+/* Liste "Lieu / Durée / Objectif" */
+.details {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.details li {
+  padding: 6px 0;
+  border-top: 1px solid var(--bordure);
+}
+
+/* Liste simple à puces */
+.liste {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.liste li {
+  padding: 3px 0;
+}
+
+/* Badges (compétences) */
+.badges {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badges li {
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: var(--bleu-clair);
+  color: var(--bleu-fonce);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- 8. Parcours : ligne du temps ---------- */
+.timeline {
+  border-left: 3px solid var(--bleu);
+  padding-left: 25px;
+}
+
+.timeline-item {
+  position: relative;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* le rond bleu sur la ligne */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bleu);
+}
+
+.timeline-item h3 {
+  margin: 4px 0;
+  color: var(--bleu-fonce);
+}
+
+.timeline-date {
+  margin: 0;
+  color: var(--bleu);
+  font-weight: 700;
+}
+
+/* ---------- 9. Quiz ---------- */
+.quiz {
+  max-width: 800px;
+}
+
+.question {
+  background: var(--blanc);
+  border: 2px solid var(--bordure);
+  border-radius: 10px;
+  padding: 16px 22px;
+  margin: 0 0 18px;
+}
+
+.question legend {
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.question label {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.question label:hover {
+  background: var(--fond);
+}
+
+/* couleurs après correction */
+.question.juste {
+  border-color: var(--vert);
+  background: var(--vert-clair);
+}
+
+.question.faux {
+  border-color: var(--rouge);
+  background: var(--rouge-clair);
+}
+
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.resultat {
+  max-width: 800px;
+  margin-top: 30px;
+  border-left: 6px solid var(--bleu);
+}
+
+.note {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--bleu-fonce);
+}
+
+.liste-reponses {
+  list-style: none;
+  padding: 0;
+}
+
+.liste-reponses li {
+  padding: 6px 0;
+  border-top: 1px solid var(--bordure);
+}
+
+/* ---------- 10. Formulaires (contact + quiz) ---------- */
+.formulaire label {
+  display: block;
+  font-weight: 600;
+  margin: 14px 0 6px;
+}
+
+.formulaire input,
+.formulaire textarea,
+.question input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.formulaire input:focus,
+.formulaire textarea:focus,
+.question input[type="text"]:focus {
+  outline: 2px solid var(--bleu);
+  border-color: var(--bleu);
+}
+
+.formulaire button {
+  margin-top: 18px;
+}
+
+.alerte {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+
+.alerte-erreur {
+  background: var(--rouge-clair);
+  color: var(--rouge);
+}
+
+.alerte-succes {
+  background: var(--vert-clair);
+  color: var(--vert);
+}
+
+/* Contact : coordonnées à gauche, formulaire à droite */
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.contact-infos {
+  flex: 1 1 280px;
+}
+
+.contact-infos p {
+  margin: 12px 0;
+}
+
+.formulaire {
+  flex: 2 1 400px;
+}
+
+.formulaire h2,
+.contact-infos h2 {
+  margin-top: 0;
+}
+
+/* ---------- 11. Témoignage ---------- */
+.temoignage {
+  max-width: 850px;
+  margin: 0;
+}
+
+.temoignage blockquote {
+  margin: 0;
+  padding-left: 20px;
+  border-left: 4px solid var(--bleu);
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
+.temoignage figcaption {
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--bleu-fonce);
+}
+
+/* ---------- 12. Pied de page ---------- */
+.site-footer {
+  background: var(--bleu-fonce);
+  color: var(--bleu-clair);
+  margin-top: 50px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: var(--blanc);
+}
+
+/* ---------- 13. Écrans moyens : menu ☰ ---------- */
+@media (max-width: 1000px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  /* le menu devient une liste verticale sous l'en-tête */
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--blanc);
+    border-bottom: 1px solid var(--bordure);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  .main-nav a {
+    padding: 10px 12px;
+    font-size: 1rem;
+  }
+}
+
+/* ---------- 14. Téléphones ---------- */
+@media (max-width: 700px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .avatar {
+    width: 130px;
+    height: 130px;
+    font-size: 2.6rem;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons,
+  .social-links {
+    justify-content: center;
+  }
+
+  .page-header {
+    padding: 35px 0;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
